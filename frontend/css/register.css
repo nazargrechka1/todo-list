@@ -1,0 +1,12 @@
+.registration-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input{
+    width: 20em;
+}
+
+.form__submit{
+    width: 20em;
+}
