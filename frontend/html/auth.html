@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
-    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/auth.css" />
   </head>
   <body>
     <header
@@ -36,6 +36,10 @@
       data-hx-get="global.footer.partial.html"
     ></footer>
 
-    <script src="/js/auth.js"></script>
+    <script>
+      document.body.addEventListener("htmx:load", function (evt) {
+        import("/js/register.js");
+      });
+    </script>
   </body>
 </html>

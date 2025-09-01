@@ -1,37 +1,43 @@
-document.body.addEventListener('htmx:load', function(evt) {
-    const form = document.getElementById('register-form');
+document.body.addEventListener("htmx:load", function () {
+  const form = document.getElementById("register-form");
 
-    
-    if (!form) {
-        console.warn('Форма реєстрації не знайдена на сторінці.');
-        return;
+  if (!form) {
+    console.error("Форма #register-form не знайдена!");
+    return;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const user = {
+      username: formData.get("nickname"), // беремо nickname, але зберігаємо в username
+      email: formData.get("email"),
+      password: formData.get("password"),
     }
+    
+    delete user.submit;
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    console.log("Об'єкт користувача, який відправляється:", user);
 
-        
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries()); 
-        
-        try {
-            const res = await fetch('/api/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+    try {
+      const res = await fetch('http://localhost:3000/auth/register', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
 
-            const result = await res.json();
-            
-            if (res.ok) {
-                alert(result.message);
-            } else {
-                alert(result.error);
-            }
+      const result = await res.json();
+      console.log("Відповідь сервера:", result);
 
-        } catch (err) {
-            console.error('Помилка при відправці запиту:', err);
-            alert('Не вдалося підключитися до сервера.');
-        }
-    });
+      if (res.ok) {
+        alert(result.message);
+      } else {
+        alert(result.error || "Помилка при реєстрації");
+      }
+    } catch (err) {
+      console.error("Помилка при відправці запиту:", err);
+      alert("Не вдалося підключитися до сервера.");
+    }
+  }, { once: true });
 });
