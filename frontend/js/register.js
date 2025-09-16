@@ -11,7 +11,7 @@ document.body.addEventListener("htmx:load", function () {
 
     const formData = new FormData(e.target);
     const user = {
-      username: formData.get("nickname"), // беремо nickname, але зберігаємо в username
+      username: formData.get("nickname"), 
       email: formData.get("email"),
       password: formData.get("password"),
     }
