@@ -11,19 +11,17 @@
     width: 20em;
 }
 
-/* Основні стилі для секції */
 .registration-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Щоб форма була по центру сторінки */
-    background-color: none; /* Легкий фон, як на зображенні */
+    background-color: none; 
     font-family: Arial, sans-serif;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Стилі для картки реєстрації */
+
 .registration-card {
     background-color: #ffffff;
     border-radius: 15px;
@@ -42,35 +40,29 @@
 }
 
 /* Стилі для форми та полів вводу */
-.registration-form .input-group {
-    margin-bottom: 20px;
-    position: relative;
-}
 
-.registration-form input[type="text"],
-.registration-form input[type="email"],
-.registration-form input[type="password"] {
-    width: calc(100% - 30px); /* Зменшуємо ширину на padding */
+.registration-form input{
+    width: calc(100% - 30px); 
     padding: 15px;
-    border: 1px solid #e0e0e0; /* Світла рамка */
+    border: 1px solid #e0e0e0; 
     border-radius: 10px;
     font-size: 16px;
+    margin-bottom: 1em;
     color: #555555;
-    outline: none; /* Прибираємо стандартний outline при фокусі */
+    outline: none; 
     transition: border-color 0.3s ease;
 }
 
 .registration-form input[type="text"]:focus,
 .registration-form input[type="email"]:focus,
 .registration-form input[type="password"]:focus {
-    border-color: #a0a0a0; /* Змінюємо рамку при фокусі */
+    border-color: #a0a0a0; 
 }
 
 .registration-form input::placeholder {
     color: #a0a0a0;
 }
 
-/* Стилі для групи "Confirm Password" з іконкою */
 .password-confirm-group {
     display: flex;
     align-items: center;
@@ -108,7 +100,7 @@
 .sign-up-btn {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(to right, #007bff, #00c6ff); /* Градієнт, як на зображенні */
+    background: var(--color-primary);
     border: none;
     border-radius: 10px;
     color: #ffffff;
@@ -116,19 +108,18 @@
     font-weight: 700;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Тінь для кнопки */
     margin-bottom: 20px;
 }
 
 .sign-up-btn:hover {
-    background: linear-gradient(to right, #0056b3, #00a0e6);
+    background: var(--color-primary-dark);
     transform: translateY(-2px); /* Невеликий ефект при наведенні */
 }
 
 /* Стилі для посилання "Forgot Password?" */
 .forgot-password-link {
+    color: #a0a0a0;
     font-size: 14px;
-    color: #007bff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
