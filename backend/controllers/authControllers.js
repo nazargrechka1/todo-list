@@ -2,7 +2,8 @@ import argon2 from "argon2";
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret";
+
 
 export const login = async (req, res) => {
   try {
@@ -49,6 +50,7 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
   try {
+    console.log("BODY:", req.body);
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
       return res.status(400).json({ error: "All fields are required" });
@@ -69,11 +71,12 @@ export const register = async (req, res) => {
       password: hashedPassword,
     });
 
+    console.log("Перед save:", newUser);
     await newUser.save();
+    console.log("Після save:", newUser);
     res.status(201).json({ message: "User creates successfully!" });
   } catch (err) {
     console.error(err);
     res.status(400).json({ error: err.message });
   }
 };
-
