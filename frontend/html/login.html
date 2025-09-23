@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <section class="login">
+      <form action="" class="login-form" id="login-form">
+        <div class="form__text">
+          <h1 class="form__title">Login</h1>
+          <p class="form__description">Please enter your credentials to log in.</p>
+        </div>
+        <input
+          type="text"
+          class="form__input"
+          placeholder="Enter your e-mail"
+          name="email"
+          id="login-email"
+        />
+        <input
+          type="password"
+          class="form__input"
+          placeholder="Enter your password"
+          name="password"
+          id="login-password"
+        />
+        <div class="form__submit-block">
+          <button type="submit" class="form__submit">Login</button>
+          <a href="register.html" class="login-link">Don't have an account?</a>
+        </div>
+      </form>
+    </section>
+    <script src="/js/login.js" defer></script>
+</body>
+</html>

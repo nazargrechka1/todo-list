@@ -2,7 +2,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 dotenv.config();
-console.log("🔑 MONGO_URI =", process.env.MONGO_URI);
 import express from "express";
 import { authRoutes } from "./routes/auth.js";
 import config from "./config/config.js";
